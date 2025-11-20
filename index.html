@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>櫻和塾 佐野空手道スポーツ少年団 | 茨城県ひたちなか市</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c5a059;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        /* Swiper Custom Styles */
+        .swiper {
+            width: 100%;
+            padding-bottom: 50px !important;
+            /* Space for pagination */
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            /* width: 300px;  Removed fixed width */
+            height: 300px;
+            /* Fixed height for consistency */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide:hover img {
+            transform: scale(1.1);
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--accent-color) !important;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--accent-color) !important;
+        }
+
+        .event-category-title {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            padding-left: 15px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Shippori Mincho', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Background Texture (Seigaiha Pattern - faint) */
+        .bg-pattern {
+            background-image: radial-gradient(#ccc 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 画像: 集合写真（バナーあり）を使用 */
+            background-image: url('IMG_7315.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6);
+            z-index: -1;
+            animation: zoomIn 20s infinite alternate;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            text-align: center;
+            padding: 40px;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            height: 100%;
+        }
+
+        .hero-main-title {
+            writing-mode: vertical-rl;
+            font-family: 'Shippori Mincho', serif;
+            font-size: clamp(4rem, 8vw, 7rem);
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9);
+            border-left: 2px solid var(--accent-color);
+            padding-left: 30px;
+            margin-left: 30px;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 金色のグラデーションテキスト */
+            background: linear-gradient(to bottom, #fff 30%, #d4af37 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            height: 60vh;
+        }
+
+        .hero-catchphrase {
+            writing-mode: vertical-rl;
+            font-family: 'Shippori Mincho', serif;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            line-height: 2;
+            margin-right: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            opacity: 0.9;
+        }
+
+        .hero-group-name {
+            writing-mode: vertical-rl;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            margin-right: 40px;
+            border-right: 1px solid rgba(255, 255, 255, 0.5);
+            padding-right: 20px;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
+        }
+
+        /* 家紋風の装飾 */
+        .kamon-decoration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .kamon-decoration::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+        }
+
+        /* --- SECTIONS COMMON --- */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            margin: 0 auto 60px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            border: 1px solid var(--accent-color);
+            transform: translateX(-50%) rotate(45deg);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .section-title span {
+            display: block;
+            font-size: 1rem;
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--accent-color);
+            letter-spacing: 0.2em;
+            margin-top: 10px;
+        }
+
+        /* --- PHILOSOPHY (ABOUT) --- */
+        .philosophy {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .philosophy-img {
+            flex: 1 1 400px;
+            position: relative;
+        }
+
+        .philosophy-img img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 10px 10px 0 var(--primary-color);
+            /* 画像: 正座・礼の画像を使用 */
+        }
+
+        .philosophy-text {
+            flex: 1 1 400px;
+        }
+
+        .kanji-big {
+            font-size: 4rem;
+            color: var(--primary-color);
+            font-family: 'Shippori Mincho', serif;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, #d4af37 60%);
+            font-weight: bold;
+        }
+
+        /* --- GALLERY (BENTO GRID) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        /* 特定のアイテムを大きく表示（Bento Grid風） */
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: white;
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            opacity: 0;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+
+        /* --- FEATURES --- */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1 1 250px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        /* --- INFO & SCHEDULE --- */
+        .info-container {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-container::after {
+            content: "心技一如";
+            position: absolute;
+            right: -20px;
+            bottom: -50px;
+            font-size: 10rem;
+            opacity: 0.05;
+            font-family: 'Shippori Mincho', serif;
+            writing-mode: vertical-rl;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            color: white;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .schedule-table th {
+            width: 30%;
+            color: var(--accent-color);
+        }
+
+        /* --- CTA / CONTACT --- */
+        .cta-section {
+            text-align: center;
+            background: url('promotion%20examination/promotion%20examination1.jpg') no-repeat center center/cover;
+            position: relative;
+            padding: 100px 20px;
+            color: white;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #000;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            margin-top: 30px;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .btn-instagram {
+            display: inline-block;
+            background: #E1306C;
+            color: white;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            margin-top: 15px;
+            transition: all 0.3s;
+            border: 2px solid #E1306C;
+            box-shadow: 0 0 20px rgba(225, 48, 108, 0.5);
+        }
+
+        .btn-instagram:hover {
+            background: transparent;
+            color: #E1306C;
+            transform: translateY(-3px);
+        }
+
+        .contact-details {
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+
+        .phone-number {
+            font-size: 2.5rem;
+            font-family: 'Shippori Mincho', serif;
+            display: block;
+            margin: 10px 0;
+            color: var(--white);
+        }
+
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* SP Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .hero-main-title {
+                writing-mode: horizontal-tb;
+                height: auto;
+                font-size: 3.5rem;
+                border-left: none;
+                border-bottom: 2px solid var(--accent-color);
+                padding-left: 0;
+                padding-bottom: 10px;
+                margin-left: 0;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+
+            .hero-sub-container {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                width: 100%;
+            }
+
+            .hero-catchphrase {
+                writing-mode: horizontal-tb;
+                font-size: 1.2rem;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .hero-group-name {
+                writing-mode: horizontal-tb;
+                height: auto;
+                margin-right: 0;
+                border-right: none;
+                border-top: 1px solid rgba(255, 255, 255, 0.5);
+                padding-right: 0;
+                padding-top: 10px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .philosophy {
+                flex-direction: column;
+            }
+
+            .info-container {
+                padding: 30px;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .schedule-table th {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-pattern"></div>
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content" data-aos="fade-in" data-aos-duration="2000">
+            <div class="kamon-decoration"></div>
+
+            <!-- メインタイトル（右側・縦書き） -->
+            <h1 class="hero-main-title">櫻和塾</h1>
+
+            <!-- サブ要素（左側） -->
+            <div class="hero-sub-container">
+                <div class="hero-catchphrase">
+                    心技一如<br>
+                    礼節を尊ぶ
+                </div>
+                <div class="hero-group-name">
+                    茨城県ひたちなか市 佐野空手道スポーツ少年団
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title" data-aos="fade-up">櫻和塾の想い<span>ABOUT US</span></h2>
+        <div class="philosophy">
+            <div class="philosophy-img" data-aos="fade-right">
+                <img src="IMG_7314.jpg" alt="礼節を重んじる稽古風景">
+            </div>
+            <div class="philosophy-text" data-aos="fade-left">
+                <div class="kanji-big">礼節・信義</div>
+                <p>
+                    佐野空手道スポーツ少年団（櫻和塾）は、財団法人全日本空手道連盟 和道流空手に所属しています。<br><br>
+                    私たちの道場のテーマは<span class="highlight">「礼節を尊び、信義を重んじ」</span>。<br>
+                    ただ強くなることだけが目的ではありません。<br><br>
+                    大きな声での挨拶、靴を揃えること、仲間を思いやる心。<br>
+                    武道を通して、人として大切な「心」を育てます。<br>
+                    年少さんから中学生まで、地域の枠を超えて共に汗を流しませんか？
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="traditional" style="background-color: #fff;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title" data-aos="fade-up">伝統空手（和道流）とは？<span>TRADITIONAL KARATE</span></h2>
+            <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 30px;" data-aos="fade-up">
+                「戦う」ことよりも、「身を守り、心を磨く」武道です。</p>
+            <p style="line-height: 2;" data-aos="fade-up">
+                私たちが指導する「伝統空手」は、相手を直接叩きのめすような格闘技とは異なります。 <span
+                    class="highlight">「寸止め（すんどめ）」</span>といって、技が当たる直前でコントロールして止めるルールを採用しています。そのため、怪我のリスクが非常に少なく、お子様でも安全に始めていただけます。<br><br>
+                痛い思いをさせるのではなく、<span class="highlight">「自分の体を思い通りに動かす技術」と「相手を尊重する心」</span>を育てるのが伝統空手の特徴です。
+            </p>
+        </div>
+    </section>
+
+    <section id="merits">
+        <h2 class="section-title" data-aos="fade-up">お子様に空手を習わせる<br>3つのメリット<span>MERITS</span></h2>
+        <div class="features">
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="feature-icon">礼</div>
+                <h3>自然と身につく<br>「礼儀・礼節」</h3>
+                <p>
+                    「礼に始まり、礼に終わる」という言葉の通り、道場では挨拶や返事を徹底します。靴を揃える、大きな声で挨拶する、先生や先輩・仲間を敬う。こうした習慣は、学校生活や将来の社会生活において一生の宝物になります。
+                </p>
+            </div>
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="feature-icon">心</div>
+                <h3>「集中力」と<br>「強い心」が育つ</h3>
+                <p>
+                    空手には「形（かた）」という、決められた動きを美しく正確に行う練習があります。指先まで神経を研ぎ澄ませて集中する時間は、お子様の集中力を高めます。また、昇級審査や試合という目標に向かって努力し、緊張感の中で力を発揮する経験は、困難に負けない「折れない心」と「自信」を育てます。
+                </p>
+            </div>
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="feature-icon">体</div>
+                <h3>全身を使う<br>「運動神経」の基礎づくり</h3>
+                <p>
+                    空手は左右の手足をバランスよく使い、体幹（インナーマッスル）を鍛える全身運動です。姿勢が良くなるだけでなく、リズム感やバランス感覚、俊敏性が養われます。ゴールデンエイジ（運動神経が最も伸びる時期）のお子様の基礎体力づくりに最適です。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <h2 class="section-title" data-aos="fade-up">年間行事<span>EVENTS</span></h2>
+
+        <!-- 親子空手体験 -->
+        <h3 class="event-category-title" data-aos="fade-right">親子空手体験</h3>
+        <div class="swiper mySwiper-events" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience1.JPEG" alt="親子空手体験">
+                </div>
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience2.JPEG" alt="親子空手体験">
+                </div>
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience3.JPEG" alt="親子空手体験">
+                </div>
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience4.JPEG" alt="親子空手体験">
+                </div>
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience5.JPEG" alt="親子空手体験">
+                </div>
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience6.JPEG" alt="親子空手体験">
+                </div>
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience7.JPEG" alt="親子空手体験">
+                </div>
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience8.JPEG" alt="親子空手体験">
+                </div>
+                <div class="swiper-slide"><img
+                        src="parent-child%20karate%20experience/parent-child%20karate%20experience9.JPEG" alt="親子空手体験">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- 合宿 -->
+        <h3 class="event-category-title" data-aos="fade-right">合宿</h3>
+        <div class="swiper mySwiper-events" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="training%20camp/training%20camp1.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp2.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp3.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp4.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp5.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp6.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp7.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp8.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp9.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp10.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp11.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp12.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp13.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp14.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp15.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp16.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp17.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp18.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp19.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp20.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp21.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp22.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp23.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp24.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp25.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp26.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp27.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp28.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp29.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp30.JPEG" alt="合宿"></div>
+                <div class="swiper-slide"><img src="training%20camp/training%20camp31.JPEG" alt="合宿"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- BBQ -->
+        <h3 class="event-category-title" data-aos="fade-right">BBQ</h3>
+        <div class="swiper mySwiper-events" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="BBQ/bbq1.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq2.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq3.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq4.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq5.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq6.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq7.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq8.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq9.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq10.JPEG" alt="バーベキュー"></div>
+                <div class="swiper-slide"><img src="BBQ/bbq11.JPEG" alt="バーベキュー"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- 昇級審査・大会 -->
+        <h3 class="event-category-title" data-aos="fade-right">昇級審査・大会</h3>
+        <div class="swiper mySwiper-events" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="promotion%20examination/promotion%20examination1.jpg" alt="昇級審査">
+                </div>
+                <div class="swiper-slide"><img src="promotion%20examination/promotion%20examination2.JPG" alt="昇級審査">
+                </div>
+                <div class="swiper-slide"><img src="promotion%20examination/promotion%20examination3.JPG" alt="昇級審査">
+                </div>
+                <div class="swiper-slide"><img src="promotion%20examination/promotion%20examination4.JPG" alt="昇級審査">
+                </div>
+                <div class="swiper-slide"><img src="promotion%20examination/promotion%20examination5.JPG" alt="昇級審査">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title" data-aos="fade-up">活動風景<span>ACTIVITY SCENERY</span></h2>
+        <div class="swiper mySwiper-gallery" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match1.JPEG"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match1.jpg"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match2.JPEG"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match3.JPEG"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match4.JPEG"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match5.JPEG"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match6.JPEG"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match7.JPEG"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match8.JPEG"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match8.jpg"
+                        alt="試合"></div>
+                <div class="swiper-slide"><img src="situation%20of%20the%20match/situation%20of%20the%20match9.JPEG"
+                        alt="試合"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <section id="media">
+        <h2 class="section-title" data-aos="fade-up">メディア掲載<span>MEDIA</span></h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+            <p style="margin-bottom: 20px; font-weight: bold;">地域テレビで紹介されました！</p>
+            <div
+                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                    src="https://www.youtube.com/embed/RT9-9VL6byE" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="info">
+        <div class="info-container" data-aos="fade-up">
+            <h2
+                style="font-family: 'Shippori Mincho'; border-bottom: 1px solid var(--accent-color); padding-bottom: 10px; display:inline-block;">
+                稽古案内</h2>
+            <table class="schedule-table">
+                <tr>
+                    <th>対象</th>
+                    <td>年少 〜 中学生（どこの地域からでも参加可能）</td>
+                </tr>
+                <tr>
+                    <th>稽古日時</th>
+                    <td>
+                        火・木：18:30 〜 20:30<br>
+                        土　　：10:00 〜 12:00
+                    </td>
+                </tr>
+                <tr>
+                    <th>場所</th>
+                    <td>
+                        <a href="https://maps.app.goo.gl/fL5bRZkuvi8tUbbz9?g_st=ipc" target="_blank"
+                            style="color: white; text-decoration: underline;">
+                            櫻和塾 道場<br>
+                            〒312-0061 茨城県ひたちなか市稲田1059-98 <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>持ち物</th>
+                    <td>動きやすい服装、飲み物、タオル（体験時）</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content" data-aos="fade-up">
+            <h2>まずは無料体験・見学へ</h2>
+            <p style="margin-top: 20px;">
+                「空手って怖くないかな？」「続けられるかな？」<br>
+                そんな不安をお持ちの方も、まずは道場の雰囲気を見に来てください。<br>
+                優しい先輩と指導者がお待ちしています。
+            </p>
+
+            <div class="contact-details">
+                <p>ご質問・体験のお申し込みはお気軽に</p>
+                <a href="tel:09016009334" class="phone-number">090-1600-9334</a>
+                <p>代表：加藤</p>
+                <p style="margin-top:10px; font-size:0.9rem;">DMでも受付中</p>
+            </div>
+
+            <a href="tel:09016009334" class="btn-primary"><i class="fas fa-phone"></i> 電話で問い合わせる</a><br>
+            <a href="https://www.instagram.com/ouwajuku?igsh=MW10cXR4NDQ2bmdtNQ==" target="_blank"
+                class="btn-instagram"><i class="fab fa-instagram"></i>
+                Instagramを見る</a>
+        </div>
+    </section>
+
+
+
+
+
+    <footer>
+        <p>&copy; Ouwa-juku Sano Karate Sports Boy Scouts. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Initialize Swiper for Events
+        var swiperEvents = new Swiper(".mySwiper-events", {
+            slidesPerView: 1.2, // Show a bit of the next slide on mobile
+            spaceBetween: 15,
+            centeredSlides: false,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                480: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3.2,
+                    spaceBetween: 25,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+            },
+        });
+
+        // Initialize Swiper for Gallery
+        var swiperGallery = new Swiper(".mySwiper-gallery", {
+            slidesPerView: 1.2,
+            spaceBetween: 15,
+            centeredSlides: false,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                480: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3.2,
+                    spaceBetween: 25,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
